@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #EFE9DA;
+  --color-paper-light: #F8F4EA;
+  --color-paper-dark: #E2D9C5;
+  --color-paper-aged: #DDD2BC;
+  
+  --color-ink: #1C1B18;
+  --color-ink-muted: #5C584E;
+  --color-ink-light: #8A8475;
+  
+  --color-verified: #2F6E4E;
+  --color-verified-bg: #EAF4EE;
+  --color-caution: #C6821E;
+  --color-caution-bg: #FAF2E3;
+  --color-danger: #A6362C;
+  --color-danger-bg: #FAECEB;
+  
+  --color-rule: #C9BFA5;
+  --color-rule-dark: #AFA487;
+  
+  --font-serif: "Roboto Slab", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "Courier Prime", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(var(--color-rule) 0.75px, transparent 0.75px),
+    radial-gradient(var(--color-rule) 0.75px, var(--color-paper) 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  min-height: 100vh;
+}
+
+/* Typography helper classes */
+.font-slab {
+  font-family: var(--font-serif);
+}
+
+.font-docket {
+  font-family: var(--font-mono);
+}
+
+/* Document Sheet Container */
+.document-sheet {
+  background-color: var(--color-paper-light);
+  border: 1px solid var(--color-rule-dark);
+  box-shadow: 
+    0 1px 2px rgba(28, 27, 24, 0.05),
+    0 4px 12px rgba(28, 27, 24, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+/* Double-ruled official document border */
+.ruled-double-bottom {
+  border-bottom: 3px double var(--color-rule-dark);
+}
+
+.ruled-double-top {
+  border-top: 3px double var(--color-rule-dark);
+}
+
+.ruled-single {
+  border-color: var(--color-rule);
+}
+
+/* Rubber Stamp Styling */
+.stamp-verified {
+  color: var(--color-verified);
+  border: 3px double var(--color-verified);
+  background-color: var(--color-verified-bg);
+  box-shadow: 0 0 0 1px var(--color-verified);
+  transform: rotate(-1.5deg);
+}
+
+.stamp-caution {
+  color: var(--color-caution);
+  border: 3px double var(--color-caution);
+  background-color: var(--color-caution-bg);
+  box-shadow: 0 0 0 1px var(--color-caution);
+  transform: rotate(1deg);
+}
+
+.stamp-danger {
+  color: var(--color-danger);
+  border: 3px double var(--color-danger);
+  background-color: var(--color-danger-bg);
+  box-shadow: 0 0 0 1px var(--color-danger);
+  transform: rotate(-2deg);
+}
+
+/* Focus inputs */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-ink) !important;
+  box-shadow: 0 0 0 2px rgba(28, 27, 24, 0.12);
+  background-color: #FFFFFF !important;
+}
+
+/* Vintage Loading Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-rule);
+  border-top-color: var(--color-ink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Subtle fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Perforation dash line */
+.perforated-edge {
+  background-image: linear-gradient(to right, var(--color-rule) 50%, rgba(255,255,255,0) 0%);
+  background-position: top;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+}

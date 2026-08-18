@@ -1,0 +1,123 @@
+[
+  {
+    "name": "upfront_payment",
+    "score": 30,
+    "keywords": [
+      "pay ₹",
+      "registration fee",
+      "security deposit",
+      "processing fee",
+      "advance payment",
+      "joining fee",
+      "training fee",
+      "refundable deposit",
+      "paise bhejo",
+      "registration fees jama karo",
+      "registration fee jama karo",
+      "advance payment karna hoga",
+      "₹ jama karein",
+      "paise jama karo",
+      "fees jama karo",
+      "पैसे भेजो",
+      "रजिस्ट्रेशन फीस",
+      "एडवांस पेमेंट"
+    ],
+    "reason": "Asks for payment before or during hiring — a known scam pattern"
+  },
+  {
+    "name": "urgency_pressure",
+    "score": 15,
+    "keywords": [
+      "act now",
+      "limited time",
+      "immediately",
+      "congratulations you've been selected",
+      "hurry",
+      "last date today",
+      "offer expires",
+      "don't miss",
+      "urgent",
+      "selected for",
+      "you have been chosen",
+      "congratulations",
+      "abhi apply karo",
+      "jaldi karo",
+      "turant",
+      "aapka number select hua hai",
+      "sirf aaj ke liye",
+      "turant apply karo",
+      "jaldi apply karein",
+      "तुरंत",
+      "जल्दी करो",
+      "सिर्फ आज के लिए"
+    ],
+    "reason": "Uses urgency or pressure language"
+  },
+  {
+    "name": "generic_email",
+    "score": 20,
+    "keywords": [
+      "gmail.com",
+      "yahoo.com",
+      "outlook.com",
+      "hotmail.com",
+      "rediffmail.com"
+    ],
+    "reason": "Uses a generic email domain instead of an official company domain"
+  },
+  {
+    "name": "sensitive_info",
+    "score": 35,
+    "keywords": [
+      "otp",
+      "bank details",
+      "card details",
+      "cvv",
+      "account number",
+      "bank account",
+      "credit card",
+      "debit card",
+      "pin number",
+      "aadhaar",
+      "pan card",
+      "send your details",
+      "otp bhejo",
+      "bank details bhejo",
+      "account number share karo",
+      "otp share karo",
+      "aadhaar card bhejo",
+      "pan card bhejo",
+      "ओटीपी भेजो",
+      "बैंक डिटेल्स"
+    ],
+    "reason": "Requests sensitive financial information (OTP/bank/card details) — legitimate employers never do this"
+  },
+  {
+    "name": "easy_money",
+    "score": 20,
+    "keywords": [
+      "no interview",
+      "instant selection",
+      "work from home",
+      "simple tasks",
+      "per day",
+      "daily income",
+      "earn from home",
+      "easy money",
+      "guaranteed income",
+      "typing job",
+      "copy paste job",
+      "data entry job from home",
+      "ghar baithe kamayein",
+      "ghar baithe kamaye",
+      "roz ka payment",
+      "roz ka income",
+      "bina interview ke job",
+      "bina interview",
+      "ghar baithe paise kamaye",
+      "घर बैठे कमाएं",
+      "रोज की कमाई"
+    ],
+    "reason": "Matches the 'easy task, guaranteed daily income' scam pattern"
+  }
+]
