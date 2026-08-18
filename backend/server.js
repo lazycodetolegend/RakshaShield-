@@ -7,7 +7,9 @@ const { initWorker, terminateWorker } = require('./utils/ocr');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://raksha-shield-orcin.vercel.app']
+}));
 app.use(express.json());
 
 // Routes
