@@ -44,14 +44,30 @@ const SUSPICIOUS_TLDS = [
 ];
 
 /**
- * Extract the domain from a URL string.
+ * Extract the clean domain from a URL string with robust fallback.
  */
 function extractDomain(urlString) {
+  if (!urlString || typeof urlString !== 'string') return null;
+  let clean = urlString.trim().toLowerCase();
+
+  // Remove surrounding brackets or quotes
+  clean = clean.replace(/^[<"'(]+|[>"')]+$/g, '');
+
+  if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+    clean = 'https://' + clean;
+  }
+
   try {
-    const url = new URL(urlString.startsWith('http') ? urlString : `https://${urlString}`);
-    return url.hostname.replace(/^www\./, '');
-  } catch {
+    const parsed = new URL(clean);
+    let host = parsed.hostname.replace(/^www\./, '').trim();
+    if (host && host.includes('.')) {
+      return host;
+    }
     return null;
+  } catch {
+    // Fallback regex extraction
+    const match = clean.match(/(?:https?:\/\/)?(?:www\.)?([a-z0-9][a-z0-9-]*\.[a-z0-9.-]+)/i);
+    return match ? match[1].toLowerCase() : null;
   }
 }
 
@@ -98,7 +114,9 @@ async function checkLink(req, res) {
 
     const domain = extractDomain(url.trim());
     if (!domain) {
-      return res.status(400).json({ error: 'Invalid URL format' });
+      return res.status(400).json({
+        error: 'Invalid domain format. Please enter a valid URL or domain (e.g. flipkart-offer.xyz or https://example.com)'
+      });
     }
 
     let score = 0;

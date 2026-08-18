@@ -23,7 +23,13 @@ export default function CheckLink() {
       const response = await client.post('/check-link', { url: url.trim() });
       setResult(response.data);
     } catch (err) {
-      setError(err.response?.data?.error || 'Domain lookup failed. Verify connectivity.');
+      if (err.response?.data?.error) {
+        setError(err.response.data.error);
+      } else if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
+        setError('Unable to reach backend API. If deployed on Vercel, ensure VITE_API_BASE_URL is set to your backend URL.');
+      } else {
+        setError(err.message || 'Domain lookup query failed. Please verify the URL.');
+      }
     } finally {
       setLoading(false);
     }
